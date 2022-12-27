@@ -42,7 +42,7 @@
                   </div>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#product" @click="temp = { ...product }">查看細節</button>
+                  <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#product" @click="tempProduct = { ...product }">查看細節</button>
                 </td>
               </tr>
             </tbody>
@@ -61,28 +61,28 @@
             <div class="row mb-4">
               <div class="col-md-6 mb-3 mb-md-0">
                 <div class="ratio ratio-1x1">
-                  <img :src="temp.imageUrl" class="img-fluid" alt="主圖">
+                  <img :src="tempProduct.imageUrl" class="img-fluid" alt="主圖">
                 </div>
               </div>
               <div class="col-md-6">
                 <h2 class="fs-4">
-                  {{ temp.title }}
+                  {{ tempProduct.title }}
                 </h2>
                 <p class="d-flex align-items-center mb-3">
-                  <span class="badge bg-primary me-2">{{ temp.category }}</span>
-                  {{ temp.content }}
+                  <span class="badge bg-primary me-2">{{ tempProduct.category }}</span>
+                  {{ tempProduct.content }}
                 </p>
-                <p class="mb-3">{{ temp.description }}</p>
+                <p class="mb-3">{{ tempProduct.description }}</p>
                 <div class="d-flex justify-content-end align-items-center">
-                  <p class="text-secondary me-2"><del>{{ temp.origin_price }}</del></p>
-                  <p class="text-danger fs-5">{{ temp.price }} {{ temp.unit }} / 元</p>
+                  <p class="text-secondary me-2"><del>{{ tempProduct.origin_price }}</del></p>
+                  <p class="text-danger fs-5">{{ tempProduct.price }} {{ tempProduct.unit }} / 元</p>
                 </div>
               </div>
             </div>
             <ul class="list-unstyled row">
-              <li class="col-4" v-for="pic in temp.imagesUrl" :key="pic">
+              <li class="col-4" v-for="pic in tempProduct.imagesUrl" :key="pic">
                 <div class="ratio ratio-1x1">
-                  <img :src="pic" :alt="temp.title" class="img-fluid">
+                  <img :src="pic" :alt="tempProduct.title" class="img-fluid">
                 </div>
               </li>
             </ul>
@@ -101,7 +101,7 @@
     const app = {
       data () {
         return {
-          temp: {},
+          tempProduct: {},
           products
         }
       }
